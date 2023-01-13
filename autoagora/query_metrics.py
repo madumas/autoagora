@@ -64,7 +64,6 @@ async def subgraph_query_count(subgraph: str) -> int:
     results = []
     async with aiohttp.ClientSession() as session:
         for endpoint in endpoints:
-            print(endpoint)
             async with session.get(endpoint) as response:
                 if response.status != 200:
                     raise HTTPError(response.status)
