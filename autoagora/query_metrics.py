@@ -4,6 +4,7 @@
 import asyncio
 import logging
 import re
+from functools import reduce
 from typing import Dict
 
 import aiohttp
@@ -17,7 +18,7 @@ argsparser.add_argument(
     "--indexer-service-metrics-endpoint",
     env_var="INDEXER_SERVICE_METRICS_ENDPOINT",
     required=True,
-    help="HTTP endpoint for the indexer-service metrics.",
+    help="HTTP endpoint for the indexer-service metrics. Multiple endpoints can be specified, seperated by a comma.",
 )
 
 
@@ -28,9 +29,9 @@ class HTTPError(Exception):
 @backoff.on_exception(
     backoff.expo, aiohttp.ClientError, max_time=30, logger=logging.root
 )
-async def indexer_service_metrics() -> str:
+async def indexer_service_metrics(endpoint: str) -> str:
     async with aiohttp.ClientSession() as session:
-        async with session.get(args.indexer_service_metrics_endpoint) as response:
+        async with session.get(endpoint) as response:
             assert response.status == 200, f"{response.status=}"
             result = await response.text()
     return result
@@ -46,7 +47,7 @@ async def query_counts() -> Dict[str, int]:
 
             results = re.findall(
                 r'indexer_service_queries_ok{deployment="(Qm[a-zA-Z0-9]{44})"} ([0-9]*)',
-                await indexer_service_metrics(),
+                await indexer_service_metrics(args.indexer_service_metrics_endpoint),
             )
 
     results = {subgraph: int(value) for subgraph, value in results}
@@ -59,17 +60,21 @@ async def query_counts() -> Dict[str, int]:
     backoff.expo, (aiohttp.ClientError, HTTPError), max_time=30, logger=logging.root
 )
 async def subgraph_query_count(subgraph: str) -> int:
+    endpoints = args.indexer_service_metrics_endpoint.split(",")
+    results = []
     async with aiohttp.ClientSession() as session:
-        async with session.get(args.indexer_service_metrics_endpoint) as response:
-            if response.status != 200:
-                raise HTTPError(response.status)
+        for endpoint in endpoints:
+            print(endpoint)
+            async with session.get(endpoint) as response:
+                if response.status != 200:
+                    raise HTTPError(response.status)
 
-            results = re.findall(
-                r'indexer_service_queries_ok{{deployment="{subgraph}"}} ([0-9]*)'.format(
-                    subgraph=subgraph
-                ),
-                await indexer_service_metrics(),
-            )
+                results.extend(re.findall(
+                    r'indexer_service_queries_ok{{deployment="{subgraph}"}} ([0-9]*)'.format(
+                        subgraph=subgraph
+                    ),
+                    await response.text()
+                ))
 
     if len(results) == 0:
         # The subgraph query count will not be in the metric if it hasn't received any
@@ -78,7 +83,7 @@ async def subgraph_query_count(subgraph: str) -> int:
     if len(results) == 1:
         return int(results[0])
     else:
-        raise RuntimeError(f"More than one matching metric entry for {subgraph}.")
+        return reduce(lambda x, y: int(x) + int(y), results)
 
 
 if __name__ == "__main__":

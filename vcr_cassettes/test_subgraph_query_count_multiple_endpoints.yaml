@@ -3,7 +3,7 @@ interactions:
     body: null
     headers: {}
     method: GET
-    uri: http://indexer-service.default.svc.cluster.local:7300/metrics
+    uri: http://indexer-service-0:7300/metrics
   response:
     body:
       string: '# HELP process_cpu_user_seconds_total Total user CPU time spent in
@@ -11,21 +11,21 @@ interactions:
 
         # TYPE process_cpu_user_seconds_total counter
 
-        process_cpu_user_seconds_total 25983.6821760002
+        process_cpu_user_seconds_total 26174.132702000163
 
 
         # HELP process_cpu_system_seconds_total Total system CPU time spent in seconds.
 
         # TYPE process_cpu_system_seconds_total counter
 
-        process_cpu_system_seconds_total 3344.5010269999857
+        process_cpu_system_seconds_total 3366.719786999984
 
 
         # HELP process_cpu_seconds_total Total user and system CPU time spent in seconds.
 
         # TYPE process_cpu_seconds_total counter
 
-        process_cpu_seconds_total 29328.183203000273
+        process_cpu_seconds_total 29540.85248900029
 
 
         # HELP process_start_time_seconds Start time of the process since unix epoch
@@ -40,28 +40,28 @@ interactions:
 
         # TYPE process_resident_memory_bytes gauge
 
-        process_resident_memory_bytes 1855332352
+        process_resident_memory_bytes 1877893120
 
 
         # HELP process_virtual_memory_bytes Virtual memory size in bytes.
 
         # TYPE process_virtual_memory_bytes gauge
 
-        process_virtual_memory_bytes 13459296256
+        process_virtual_memory_bytes 13477756928
 
 
         # HELP process_heap_bytes Process heap size in bytes.
 
         # TYPE process_heap_bytes gauge
 
-        process_heap_bytes 1914224640
+        process_heap_bytes 1935814656
 
 
         # HELP process_open_fds Number of open file descriptors.
 
         # TYPE process_open_fds gauge
 
-        process_open_fds 25
+        process_open_fds 32
 
 
         # HELP process_max_fds Maximum number of open file descriptors.
@@ -75,21 +75,21 @@ interactions:
 
         # TYPE nodejs_eventloop_lag_seconds gauge
 
-        nodejs_eventloop_lag_seconds 0.018680362
+        nodejs_eventloop_lag_seconds 0.016750364
 
 
         # HELP nodejs_eventloop_lag_min_seconds The minimum recorded event loop delay.
 
         # TYPE nodejs_eventloop_lag_min_seconds gauge
 
-        nodejs_eventloop_lag_min_seconds 0.009076736
+        nodejs_eventloop_lag_min_seconds 0.009068544
 
 
         # HELP nodejs_eventloop_lag_max_seconds The maximum recorded event loop delay.
 
         # TYPE nodejs_eventloop_lag_max_seconds gauge
 
-        nodejs_eventloop_lag_max_seconds 0.014942207
+        nodejs_eventloop_lag_max_seconds 0.083099647
 
 
         # HELP nodejs_eventloop_lag_mean_seconds The mean of the recorded event loop
@@ -97,7 +97,7 @@ interactions:
 
         # TYPE nodejs_eventloop_lag_mean_seconds gauge
 
-        nodejs_eventloop_lag_mean_seconds 0.010151504743846854
+        nodejs_eventloop_lag_mean_seconds 0.01035513081081081
 
 
         # HELP nodejs_eventloop_lag_stddev_seconds The standard deviation of the recorded
@@ -105,7 +105,7 @@ interactions:
 
         # TYPE nodejs_eventloop_lag_stddev_seconds gauge
 
-        nodejs_eventloop_lag_stddev_seconds 0.0002849273388931981
+        nodejs_eventloop_lag_stddev_seconds 0.003814667950868041
 
 
         # HELP nodejs_eventloop_lag_p50_seconds The 50th percentile of the recorded
@@ -113,7 +113,7 @@ interactions:
 
         # TYPE nodejs_eventloop_lag_p50_seconds gauge
 
-        nodejs_eventloop_lag_p50_seconds 0.010141695
+        nodejs_eventloop_lag_p50_seconds 0.010100735
 
 
         # HELP nodejs_eventloop_lag_p90_seconds The 90th percentile of the recorded
@@ -121,7 +121,7 @@ interactions:
 
         # TYPE nodejs_eventloop_lag_p90_seconds gauge
 
-        nodejs_eventloop_lag_p90_seconds 0.010207231
+        nodejs_eventloop_lag_p90_seconds 0.010199039
 
 
         # HELP nodejs_eventloop_lag_p99_seconds The 99th percentile of the recorded
@@ -129,7 +129,7 @@ interactions:
 
         # TYPE nodejs_eventloop_lag_p99_seconds gauge
 
-        nodejs_eventloop_lag_p99_seconds 0.010903551
+        nodejs_eventloop_lag_p99_seconds 0.011051007
 
 
         # HELP nodejs_active_handles Number of active libuv handles grouped by handle
@@ -137,7 +137,7 @@ interactions:
 
         # TYPE nodejs_active_handles gauge
 
-        nodejs_active_handles{type="Socket"} 7
+        nodejs_active_handles{type="Socket"} 13
 
         nodejs_active_handles{type="Server"} 2
 
@@ -146,7 +146,7 @@ interactions:
 
         # TYPE nodejs_active_handles_total gauge
 
-        nodejs_active_handles_total 9
+        nodejs_active_handles_total 15
 
 
         # HELP nodejs_active_requests Number of active libuv requests grouped by request
@@ -154,19 +154,21 @@ interactions:
 
         # TYPE nodejs_active_requests gauge
 
+        nodejs_active_requests{type="GetAddrInfoReqWrap"} 1
+
 
         # HELP nodejs_active_requests_total Total number of active requests.
 
         # TYPE nodejs_active_requests_total gauge
 
-        nodejs_active_requests_total 0
+        nodejs_active_requests_total 1
 
 
         # HELP nodejs_heap_size_total_bytes Process heap size from Node.js in bytes.
 
         # TYPE nodejs_heap_size_total_bytes gauge
 
-        nodejs_heap_size_total_bytes 1687007232
+        nodejs_heap_size_total_bytes 1701097472
 
 
         # HELP nodejs_heap_size_used_bytes Process heap size used from Node.js in
@@ -174,14 +176,14 @@ interactions:
 
         # TYPE nodejs_heap_size_used_bytes gauge
 
-        nodejs_heap_size_used_bytes 1622947760
+        nodejs_heap_size_used_bytes 1641044944
 
 
         # HELP nodejs_external_memory_bytes Node.js external memory size in bytes.
 
         # TYPE nodejs_external_memory_bytes gauge
 
-        nodejs_external_memory_bytes 24467061
+        nodejs_external_memory_bytes 31989200
 
 
         # HELP nodejs_heap_space_size_total_bytes Process heap space size total from
@@ -191,19 +193,19 @@ interactions:
 
         nodejs_heap_space_size_total_bytes{space="read_only"} 176128
 
-        nodejs_heap_space_size_total_bytes{space="old"} 1623609344
+        nodejs_heap_space_size_total_bytes{space="old"} 1633832960
 
-        nodejs_heap_space_size_total_bytes{space="code"} 9543680
+        nodejs_heap_space_size_total_bytes{space="code"} 9019392
 
-        nodejs_heap_space_size_total_bytes{space="map"} 5513216
+        nodejs_heap_space_size_total_bytes{space="map"} 5251072
 
-        nodejs_heap_space_size_total_bytes{space="large_object"} 26144768
+        nodejs_heap_space_size_total_bytes{space="large_object"} 27328512
 
         nodejs_heap_space_size_total_bytes{space="code_large_object"} 0
 
-        nodejs_heap_space_size_total_bytes{space="new_large_object"} 0
+        nodejs_heap_space_size_total_bytes{space="new_large_object"} 323584
 
-        nodejs_heap_space_size_total_bytes{space="new"} 22020096
+        nodejs_heap_space_size_total_bytes{space="new"} 25165824
 
 
         # HELP nodejs_heap_space_size_used_bytes Process heap space size used from
@@ -213,19 +215,19 @@ interactions:
 
         nodejs_heap_space_size_used_bytes{space="read_only"} 170944
 
-        nodejs_heap_space_size_used_bytes{space="old"} 1584049424
+        nodejs_heap_space_size_used_bytes{space="old"} 1600559504
 
-        nodejs_heap_space_size_used_bytes{space="code"} 8141376
+        nodejs_heap_space_size_used_bytes{space="code"} 7826144
 
-        nodejs_heap_space_size_used_bytes{space="map"} 4286528
+        nodejs_heap_space_size_used_bytes{space="map"} 4307400
 
-        nodejs_heap_space_size_used_bytes{space="large_object"} 25868152
+        nodejs_heap_space_size_used_bytes{space="large_object"} 27004096
 
         nodejs_heap_space_size_used_bytes{space="code_large_object"} 0
 
-        nodejs_heap_space_size_used_bytes{space="new_large_object"} 0
+        nodejs_heap_space_size_used_bytes{space="new_large_object"} 317288
 
-        nodejs_heap_space_size_used_bytes{space="new"} 435632
+        nodejs_heap_space_size_used_bytes{space="new"} 863864
 
 
         # HELP nodejs_heap_space_size_available_bytes Process heap space size available
@@ -235,19 +237,19 @@ interactions:
 
         nodejs_heap_space_size_available_bytes{space="read_only"} 0
 
-        nodejs_heap_space_size_available_bytes{space="old"} 11109440
+        nodejs_heap_space_size_available_bytes{space="old"} 4618888
 
-        nodejs_heap_space_size_available_bytes{space="code"} 796096
+        nodejs_heap_space_size_available_bytes{space="code"} 619808
 
-        nodejs_heap_space_size_available_bytes{space="map"} 1130312
+        nodejs_heap_space_size_available_bytes{space="map"} 851664
 
         nodejs_heap_space_size_available_bytes{space="large_object"} 0
 
         nodejs_heap_space_size_available_bytes{space="code_large_object"} 0
 
-        nodejs_heap_space_size_available_bytes{space="new_large_object"} 1031072
+        nodejs_heap_space_size_available_bytes{space="new_large_object"} 1744856
 
-        nodejs_heap_space_size_available_bytes{space="new"} 595440
+        nodejs_heap_space_size_available_bytes{space="new"} 1198280
 
 
         # HELP nodejs_version_info Node.js version info.
@@ -264,39 +266,39 @@ interactions:
 
         nodejs_gc_duration_seconds_bucket{le="0.001",kind="minor"} 18248
 
-        nodejs_gc_duration_seconds_bucket{le="0.01",kind="minor"} 292669
+        nodejs_gc_duration_seconds_bucket{le="0.01",kind="minor"} 295680
 
-        nodejs_gc_duration_seconds_bucket{le="0.1",kind="minor"} 295137
+        nodejs_gc_duration_seconds_bucket{le="0.1",kind="minor"} 298163
 
-        nodejs_gc_duration_seconds_bucket{le="1",kind="minor"} 295138
+        nodejs_gc_duration_seconds_bucket{le="1",kind="minor"} 298164
 
-        nodejs_gc_duration_seconds_bucket{le="2",kind="minor"} 295138
+        nodejs_gc_duration_seconds_bucket{le="2",kind="minor"} 298164
 
-        nodejs_gc_duration_seconds_bucket{le="5",kind="minor"} 295138
+        nodejs_gc_duration_seconds_bucket{le="5",kind="minor"} 298164
 
-        nodejs_gc_duration_seconds_bucket{le="+Inf",kind="minor"} 295138
+        nodejs_gc_duration_seconds_bucket{le="+Inf",kind="minor"} 298164
 
-        nodejs_gc_duration_seconds_sum{kind="minor"} 885.0487384932152
+        nodejs_gc_duration_seconds_sum{kind="minor"} 899.3097744920366
 
-        nodejs_gc_duration_seconds_count{kind="minor"} 295138
+        nodejs_gc_duration_seconds_count{kind="minor"} 298164
 
-        nodejs_gc_duration_seconds_bucket{le="0.001",kind="incremental"} 18974
+        nodejs_gc_duration_seconds_bucket{le="0.001",kind="incremental"} 18989
 
-        nodejs_gc_duration_seconds_bucket{le="0.01",kind="incremental"} 24017
+        nodejs_gc_duration_seconds_bucket{le="0.01",kind="incremental"} 24038
 
-        nodejs_gc_duration_seconds_bucket{le="0.1",kind="incremental"} 24132
+        nodejs_gc_duration_seconds_bucket{le="0.1",kind="incremental"} 24154
 
-        nodejs_gc_duration_seconds_bucket{le="1",kind="incremental"} 24133
+        nodejs_gc_duration_seconds_bucket{le="1",kind="incremental"} 24155
 
-        nodejs_gc_duration_seconds_bucket{le="2",kind="incremental"} 24133
+        nodejs_gc_duration_seconds_bucket{le="2",kind="incremental"} 24155
 
-        nodejs_gc_duration_seconds_bucket{le="5",kind="incremental"} 24133
+        nodejs_gc_duration_seconds_bucket{le="5",kind="incremental"} 24155
 
-        nodejs_gc_duration_seconds_bucket{le="+Inf",kind="incremental"} 24133
+        nodejs_gc_duration_seconds_bucket{le="+Inf",kind="incremental"} 24155
 
-        nodejs_gc_duration_seconds_sum{kind="incremental"} 21.818068483829485
+        nodejs_gc_duration_seconds_sum{kind="incremental"} 21.873204419612872
 
-        nodejs_gc_duration_seconds_count{kind="incremental"} 24133
+        nodejs_gc_duration_seconds_count{kind="incremental"} 24155
 
         nodejs_gc_duration_seconds_bucket{le="0.001",kind="weakcb"} 1
 
@@ -320,26 +322,26 @@ interactions:
 
         nodejs_gc_duration_seconds_bucket{le="0.01",kind="major"} 6850
 
-        nodejs_gc_duration_seconds_bucket{le="0.1",kind="major"} 15148
+        nodejs_gc_duration_seconds_bucket{le="0.1",kind="major"} 15163
 
-        nodejs_gc_duration_seconds_bucket{le="1",kind="major"} 15171
+        nodejs_gc_duration_seconds_bucket{le="1",kind="major"} 15186
 
-        nodejs_gc_duration_seconds_bucket{le="2",kind="major"} 15171
+        nodejs_gc_duration_seconds_bucket{le="2",kind="major"} 15186
 
-        nodejs_gc_duration_seconds_bucket{le="5",kind="major"} 15171
+        nodejs_gc_duration_seconds_bucket{le="5",kind="major"} 15186
 
-        nodejs_gc_duration_seconds_bucket{le="+Inf",kind="major"} 15171
+        nodejs_gc_duration_seconds_bucket{le="+Inf",kind="major"} 15186
 
-        nodejs_gc_duration_seconds_sum{kind="major"} 202.72359674215284
+        nodejs_gc_duration_seconds_sum{kind="major"} 203.23141263151135
 
-        nodejs_gc_duration_seconds_count{kind="major"} 15171
+        nodejs_gc_duration_seconds_count{kind="major"} 15186
 
 
         # HELP indexer_error Indexer errors observed over time
 
         # TYPE indexer_error counter
 
-        indexer_error{code="IE010"} 14
+        indexer_error{code="IE010"} 15
 
 
         # HELP eth_provider_requests Ethereum provider requests
@@ -348,7 +350,7 @@ interactions:
 
         eth_provider_requests{method="eth_chainId"} 1
 
-        eth_provider_requests{method="eth_blockNumber"} 193402
+        eth_provider_requests{method="eth_blockNumber"} 195151
 
 
         # HELP indexer_service_queries_total Incoming queries
@@ -356,7 +358,7 @@ interactions:
         # TYPE indexer_service_queries_total counter
 
         indexer_service_queries_total{deployment="QmdQrhoanCwQ81Y5d2DkhDajBV3hxA9rgmPxStjjXBGZoW"}
-        218162
+        218266
 
         indexer_service_queries_total{deployment="QmPcnXUfkn49CHaZRn25GRaMmVeYbZuykAijwHRPoPkbgy"}
         10276
@@ -365,31 +367,31 @@ interactions:
         4756
 
         indexer_service_queries_total{deployment="QmPziMSbs4i7oQ6AfxmY5HDXMRVHiBBb8soWqncLpKfQGr"}
-        2354
+        2384
 
         indexer_service_queries_total{deployment="QmdvneqZqz2NYeaqnVJGxhZzdonbVzyQSxzMJEE168tbNN"}
-        2643
+        2677
 
         indexer_service_queries_total{deployment="QmXWbpH76U6TM4teRNMZzog2ismx577CkH7dzn1Nw69FcV"}
         2891
 
         indexer_service_queries_total{deployment="Qmadj8x9km1YEyKmRnJ6EkC2zpJZFCfTyTZpuqC3j6e1QH"}
-        1664
+        1669
 
         indexer_service_queries_total{deployment="QmYzsCjrVwwXtdsNm3PZVNziLGmb9o513GUzkq5wwhgXDT"}
-        9927
+        9977
 
         indexer_service_queries_total{deployment="QmbJzTd7DCAg9aP57DgLsYbokrX82BjE1ToKedPMMTRCf4"}
         187
 
         indexer_service_queries_total{deployment="QmXZiV6S13ha6QXq4dmaM3TB4CHcDxBMvGexSNu9Kc28EH"}
-        7063
+        7065
 
         indexer_service_queries_total{deployment="QmT29nwVngpgGJSHaw1qnTeCLg9o3s95ix2L4TdX7WK67G"}
         2
 
         indexer_service_queries_total{deployment="QmT8631Rt8ZaGtD48F7WP6trs5Wd2RNoacMRPYLfuotDwB"}
-        1608
+        1611
 
         indexer_service_queries_total{deployment="QmW8r5NcWfraxqXY4p64sH9ohfZFEdoeTUoXKBdm2c9W28"}
         240
@@ -455,10 +457,10 @@ interactions:
         74
 
         indexer_service_queries_total{deployment="QmVQdzeGdPUiLiACeqXRpKAYpyj8Z1yfWLMUq7A7WundUf"}
-        8
+        9
 
         indexer_service_queries_total{deployment="QmSvVWWgni9dVDxFDySDuDFC7jH8PdBy3guKc7x9rRgGXv"}
-        145
+        148
 
         indexer_service_queries_total{deployment="QmQvWjkGqnAk1YBfSogasskPhJ5dG46yxvrzYeJsowjhqb"}
         12
@@ -469,7 +471,7 @@ interactions:
         # TYPE indexer_service_queries_ok counter
 
         indexer_service_queries_ok{deployment="QmdQrhoanCwQ81Y5d2DkhDajBV3hxA9rgmPxStjjXBGZoW"}
-        218162
+        218266
 
         indexer_service_queries_ok{deployment="QmPcnXUfkn49CHaZRn25GRaMmVeYbZuykAijwHRPoPkbgy"}
         10276
@@ -478,31 +480,31 @@ interactions:
         4756
 
         indexer_service_queries_ok{deployment="QmPziMSbs4i7oQ6AfxmY5HDXMRVHiBBb8soWqncLpKfQGr"}
-        2354
+        2384
 
         indexer_service_queries_ok{deployment="QmdvneqZqz2NYeaqnVJGxhZzdonbVzyQSxzMJEE168tbNN"}
-        2643
+        2676
 
         indexer_service_queries_ok{deployment="QmXWbpH76U6TM4teRNMZzog2ismx577CkH7dzn1Nw69FcV"}
         2891
 
         indexer_service_queries_ok{deployment="Qmadj8x9km1YEyKmRnJ6EkC2zpJZFCfTyTZpuqC3j6e1QH"}
-        1664
+        1669
 
         indexer_service_queries_ok{deployment="QmYzsCjrVwwXtdsNm3PZVNziLGmb9o513GUzkq5wwhgXDT"}
-        9927
+        9977
 
         indexer_service_queries_ok{deployment="QmbJzTd7DCAg9aP57DgLsYbokrX82BjE1ToKedPMMTRCf4"}
         187
 
         indexer_service_queries_ok{deployment="QmXZiV6S13ha6QXq4dmaM3TB4CHcDxBMvGexSNu9Kc28EH"}
-        7063
+        7065
 
         indexer_service_queries_ok{deployment="QmT29nwVngpgGJSHaw1qnTeCLg9o3s95ix2L4TdX7WK67G"}
         2
 
         indexer_service_queries_ok{deployment="QmT8631Rt8ZaGtD48F7WP6trs5Wd2RNoacMRPYLfuotDwB"}
-        1608
+        1611
 
         indexer_service_queries_ok{deployment="QmW8r5NcWfraxqXY4p64sH9ohfZFEdoeTUoXKBdm2c9W28"}
         240
@@ -568,10 +570,10 @@ interactions:
         74
 
         indexer_service_queries_ok{deployment="QmVQdzeGdPUiLiACeqXRpKAYpyj8Z1yfWLMUq7A7WundUf"}
-        8
+        9
 
         indexer_service_queries_ok{deployment="QmSvVWWgni9dVDxFDySDuDFC7jH8PdBy3guKc7x9rRgGXv"}
-        145
+        148
 
         indexer_service_queries_ok{deployment="QmQvWjkGqnAk1YBfSogasskPhJ5dG46yxvrzYeJsowjhqb"}
         12
@@ -612,40 +614,40 @@ interactions:
         1062
 
         indexer_service_query_duration_bucket{le="0.025",deployment="QmdQrhoanCwQ81Y5d2DkhDajBV3hxA9rgmPxStjjXBGZoW"}
-        70024
+        70031
 
         indexer_service_query_duration_bucket{le="0.05",deployment="QmdQrhoanCwQ81Y5d2DkhDajBV3hxA9rgmPxStjjXBGZoW"}
-        132699
+        132762
 
         indexer_service_query_duration_bucket{le="0.1",deployment="QmdQrhoanCwQ81Y5d2DkhDajBV3hxA9rgmPxStjjXBGZoW"}
-        161391
+        161473
 
         indexer_service_query_duration_bucket{le="0.25",deployment="QmdQrhoanCwQ81Y5d2DkhDajBV3hxA9rgmPxStjjXBGZoW"}
-        180034
+        180122
 
         indexer_service_query_duration_bucket{le="0.5",deployment="QmdQrhoanCwQ81Y5d2DkhDajBV3hxA9rgmPxStjjXBGZoW"}
-        194978
+        195068
 
         indexer_service_query_duration_bucket{le="1",deployment="QmdQrhoanCwQ81Y5d2DkhDajBV3hxA9rgmPxStjjXBGZoW"}
-        204023
+        204114
 
         indexer_service_query_duration_bucket{le="2.5",deployment="QmdQrhoanCwQ81Y5d2DkhDajBV3hxA9rgmPxStjjXBGZoW"}
-        208751
+        208845
 
         indexer_service_query_duration_bucket{le="5",deployment="QmdQrhoanCwQ81Y5d2DkhDajBV3hxA9rgmPxStjjXBGZoW"}
-        218073
+        218177
 
         indexer_service_query_duration_bucket{le="10",deployment="QmdQrhoanCwQ81Y5d2DkhDajBV3hxA9rgmPxStjjXBGZoW"}
-        218139
+        218243
 
         indexer_service_query_duration_bucket{le="+Inf",deployment="QmdQrhoanCwQ81Y5d2DkhDajBV3hxA9rgmPxStjjXBGZoW"}
-        218162
+        218266
 
         indexer_service_query_duration_sum{deployment="QmdQrhoanCwQ81Y5d2DkhDajBV3hxA9rgmPxStjjXBGZoW"}
-        59786.59482247675
+        59830.89320326578
 
         indexer_service_query_duration_count{deployment="QmdQrhoanCwQ81Y5d2DkhDajBV3hxA9rgmPxStjjXBGZoW"}
-        218162
+        218266
 
         indexer_service_query_duration_bucket{le="0.005",deployment="QmPcnXUfkn49CHaZRn25GRaMmVeYbZuykAijwHRPoPkbgy"}
         0
@@ -738,40 +740,40 @@ interactions:
         0
 
         indexer_service_query_duration_bucket{le="0.025",deployment="QmPziMSbs4i7oQ6AfxmY5HDXMRVHiBBb8soWqncLpKfQGr"}
-        462
+        465
 
         indexer_service_query_duration_bucket{le="0.05",deployment="QmPziMSbs4i7oQ6AfxmY5HDXMRVHiBBb8soWqncLpKfQGr"}
-        898
+        906
 
         indexer_service_query_duration_bucket{le="0.1",deployment="QmPziMSbs4i7oQ6AfxmY5HDXMRVHiBBb8soWqncLpKfQGr"}
-        1258
+        1273
 
         indexer_service_query_duration_bucket{le="0.25",deployment="QmPziMSbs4i7oQ6AfxmY5HDXMRVHiBBb8soWqncLpKfQGr"}
-        1487
+        1510
 
         indexer_service_query_duration_bucket{le="0.5",deployment="QmPziMSbs4i7oQ6AfxmY5HDXMRVHiBBb8soWqncLpKfQGr"}
-        1794
+        1817
 
         indexer_service_query_duration_bucket{le="1",deployment="QmPziMSbs4i7oQ6AfxmY5HDXMRVHiBBb8soWqncLpKfQGr"}
-        2227
+        2253
 
         indexer_service_query_duration_bucket{le="2.5",deployment="QmPziMSbs4i7oQ6AfxmY5HDXMRVHiBBb8soWqncLpKfQGr"}
-        2353
+        2383
 
         indexer_service_query_duration_bucket{le="5",deployment="QmPziMSbs4i7oQ6AfxmY5HDXMRVHiBBb8soWqncLpKfQGr"}
-        2354
+        2384
 
         indexer_service_query_duration_bucket{le="10",deployment="QmPziMSbs4i7oQ6AfxmY5HDXMRVHiBBb8soWqncLpKfQGr"}
-        2354
+        2384
 
         indexer_service_query_duration_bucket{le="+Inf",deployment="QmPziMSbs4i7oQ6AfxmY5HDXMRVHiBBb8soWqncLpKfQGr"}
-        2354
+        2384
 
         indexer_service_query_duration_sum{deployment="QmPziMSbs4i7oQ6AfxmY5HDXMRVHiBBb8soWqncLpKfQGr"}
-        672.1248712170001
+        681.602905266
 
         indexer_service_query_duration_count{deployment="QmPziMSbs4i7oQ6AfxmY5HDXMRVHiBBb8soWqncLpKfQGr"}
-        2354
+        2384
 
         indexer_service_query_duration_bucket{le="0.005",deployment="QmdvneqZqz2NYeaqnVJGxhZzdonbVzyQSxzMJEE168tbNN"}
         0
@@ -780,40 +782,40 @@ interactions:
         1
 
         indexer_service_query_duration_bucket{le="0.025",deployment="QmdvneqZqz2NYeaqnVJGxhZzdonbVzyQSxzMJEE168tbNN"}
-        445
+        446
 
         indexer_service_query_duration_bucket{le="0.05",deployment="QmdvneqZqz2NYeaqnVJGxhZzdonbVzyQSxzMJEE168tbNN"}
-        904
+        911
 
         indexer_service_query_duration_bucket{le="0.1",deployment="QmdvneqZqz2NYeaqnVJGxhZzdonbVzyQSxzMJEE168tbNN"}
-        2296
+        2327
 
         indexer_service_query_duration_bucket{le="0.25",deployment="QmdvneqZqz2NYeaqnVJGxhZzdonbVzyQSxzMJEE168tbNN"}
-        2596
-
-        indexer_service_query_duration_bucket{le="0.5",deployment="QmdvneqZqz2NYeaqnVJGxhZzdonbVzyQSxzMJEE168tbNN"}
         2629
 
+        indexer_service_query_duration_bucket{le="0.5",deployment="QmdvneqZqz2NYeaqnVJGxhZzdonbVzyQSxzMJEE168tbNN"}
+        2662
+
         indexer_service_query_duration_bucket{le="1",deployment="QmdvneqZqz2NYeaqnVJGxhZzdonbVzyQSxzMJEE168tbNN"}
-        2642
+        2675
 
         indexer_service_query_duration_bucket{le="2.5",deployment="QmdvneqZqz2NYeaqnVJGxhZzdonbVzyQSxzMJEE168tbNN"}
-        2643
+        2676
 
         indexer_service_query_duration_bucket{le="5",deployment="QmdvneqZqz2NYeaqnVJGxhZzdonbVzyQSxzMJEE168tbNN"}
-        2643
+        2676
 
         indexer_service_query_duration_bucket{le="10",deployment="QmdvneqZqz2NYeaqnVJGxhZzdonbVzyQSxzMJEE168tbNN"}
-        2643
+        2676
 
         indexer_service_query_duration_bucket{le="+Inf",deployment="QmdvneqZqz2NYeaqnVJGxhZzdonbVzyQSxzMJEE168tbNN"}
-        2643
+        2676
 
         indexer_service_query_duration_sum{deployment="QmdvneqZqz2NYeaqnVJGxhZzdonbVzyQSxzMJEE168tbNN"}
-        184.44438504800013
+        186.72636282000008
 
         indexer_service_query_duration_count{deployment="QmdvneqZqz2NYeaqnVJGxhZzdonbVzyQSxzMJEE168tbNN"}
-        2643
+        2676
 
         indexer_service_query_duration_bucket{le="0.005",deployment="QmXWbpH76U6TM4teRNMZzog2ismx577CkH7dzn1Nw69FcV"}
         0
@@ -867,79 +869,79 @@ interactions:
         230
 
         indexer_service_query_duration_bucket{le="0.05",deployment="Qmadj8x9km1YEyKmRnJ6EkC2zpJZFCfTyTZpuqC3j6e1QH"}
-        1317
+        1320
 
         indexer_service_query_duration_bucket{le="0.1",deployment="Qmadj8x9km1YEyKmRnJ6EkC2zpJZFCfTyTZpuqC3j6e1QH"}
-        1564
+        1568
 
         indexer_service_query_duration_bucket{le="0.25",deployment="Qmadj8x9km1YEyKmRnJ6EkC2zpJZFCfTyTZpuqC3j6e1QH"}
-        1637
+        1642
 
         indexer_service_query_duration_bucket{le="0.5",deployment="Qmadj8x9km1YEyKmRnJ6EkC2zpJZFCfTyTZpuqC3j6e1QH"}
-        1661
+        1666
 
         indexer_service_query_duration_bucket{le="1",deployment="Qmadj8x9km1YEyKmRnJ6EkC2zpJZFCfTyTZpuqC3j6e1QH"}
-        1664
+        1669
 
         indexer_service_query_duration_bucket{le="2.5",deployment="Qmadj8x9km1YEyKmRnJ6EkC2zpJZFCfTyTZpuqC3j6e1QH"}
-        1664
+        1669
 
         indexer_service_query_duration_bucket{le="5",deployment="Qmadj8x9km1YEyKmRnJ6EkC2zpJZFCfTyTZpuqC3j6e1QH"}
-        1664
+        1669
 
         indexer_service_query_duration_bucket{le="10",deployment="Qmadj8x9km1YEyKmRnJ6EkC2zpJZFCfTyTZpuqC3j6e1QH"}
-        1664
+        1669
 
         indexer_service_query_duration_bucket{le="+Inf",deployment="Qmadj8x9km1YEyKmRnJ6EkC2zpJZFCfTyTZpuqC3j6e1QH"}
-        1664
+        1669
 
         indexer_service_query_duration_sum{deployment="Qmadj8x9km1YEyKmRnJ6EkC2zpJZFCfTyTZpuqC3j6e1QH"}
-        79.31913359999987
+        79.67713597399988
 
         indexer_service_query_duration_count{deployment="Qmadj8x9km1YEyKmRnJ6EkC2zpJZFCfTyTZpuqC3j6e1QH"}
-        1664
+        1669
 
         indexer_service_query_duration_bucket{le="0.005",deployment="QmYzsCjrVwwXtdsNm3PZVNziLGmb9o513GUzkq5wwhgXDT"}
         20
 
         indexer_service_query_duration_bucket{le="0.01",deployment="QmYzsCjrVwwXtdsNm3PZVNziLGmb9o513GUzkq5wwhgXDT"}
-        1451
+        1452
 
         indexer_service_query_duration_bucket{le="0.025",deployment="QmYzsCjrVwwXtdsNm3PZVNziLGmb9o513GUzkq5wwhgXDT"}
-        4346
+        4357
 
         indexer_service_query_duration_bucket{le="0.05",deployment="QmYzsCjrVwwXtdsNm3PZVNziLGmb9o513GUzkq5wwhgXDT"}
-        6297
+        6331
 
         indexer_service_query_duration_bucket{le="0.1",deployment="QmYzsCjrVwwXtdsNm3PZVNziLGmb9o513GUzkq5wwhgXDT"}
-        8251
+        8288
 
         indexer_service_query_duration_bucket{le="0.25",deployment="QmYzsCjrVwwXtdsNm3PZVNziLGmb9o513GUzkq5wwhgXDT"}
-        9751
+        9799
 
         indexer_service_query_duration_bucket{le="0.5",deployment="QmYzsCjrVwwXtdsNm3PZVNziLGmb9o513GUzkq5wwhgXDT"}
-        9876
+        9926
 
         indexer_service_query_duration_bucket{le="1",deployment="QmYzsCjrVwwXtdsNm3PZVNziLGmb9o513GUzkq5wwhgXDT"}
-        9919
+        9969
 
         indexer_service_query_duration_bucket{le="2.5",deployment="QmYzsCjrVwwXtdsNm3PZVNziLGmb9o513GUzkq5wwhgXDT"}
-        9927
+        9977
 
         indexer_service_query_duration_bucket{le="5",deployment="QmYzsCjrVwwXtdsNm3PZVNziLGmb9o513GUzkq5wwhgXDT"}
-        9927
+        9977
 
         indexer_service_query_duration_bucket{le="10",deployment="QmYzsCjrVwwXtdsNm3PZVNziLGmb9o513GUzkq5wwhgXDT"}
-        9927
+        9977
 
         indexer_service_query_duration_bucket{le="+Inf",deployment="QmYzsCjrVwwXtdsNm3PZVNziLGmb9o513GUzkq5wwhgXDT"}
-        9927
+        9977
 
         indexer_service_query_duration_sum{deployment="QmYzsCjrVwwXtdsNm3PZVNziLGmb9o513GUzkq5wwhgXDT"}
-        572.2866912009998
+        575.9092749969998
 
         indexer_service_query_duration_count{deployment="QmYzsCjrVwwXtdsNm3PZVNziLGmb9o513GUzkq5wwhgXDT"}
-        9927
+        9977
 
         indexer_service_query_duration_bucket{le="0.005",deployment="QmbJzTd7DCAg9aP57DgLsYbokrX82BjE1ToKedPMMTRCf4"}
         0
@@ -990,40 +992,40 @@ interactions:
         56
 
         indexer_service_query_duration_bucket{le="0.025",deployment="QmXZiV6S13ha6QXq4dmaM3TB4CHcDxBMvGexSNu9Kc28EH"}
-        2565
+        2566
 
         indexer_service_query_duration_bucket{le="0.05",deployment="QmXZiV6S13ha6QXq4dmaM3TB4CHcDxBMvGexSNu9Kc28EH"}
-        3758
+        3760
 
         indexer_service_query_duration_bucket{le="0.1",deployment="QmXZiV6S13ha6QXq4dmaM3TB4CHcDxBMvGexSNu9Kc28EH"}
-        6733
+        6735
 
         indexer_service_query_duration_bucket{le="0.25",deployment="QmXZiV6S13ha6QXq4dmaM3TB4CHcDxBMvGexSNu9Kc28EH"}
-        6976
+        6978
 
         indexer_service_query_duration_bucket{le="0.5",deployment="QmXZiV6S13ha6QXq4dmaM3TB4CHcDxBMvGexSNu9Kc28EH"}
-        7029
+        7031
 
         indexer_service_query_duration_bucket{le="1",deployment="QmXZiV6S13ha6QXq4dmaM3TB4CHcDxBMvGexSNu9Kc28EH"}
-        7058
+        7060
 
         indexer_service_query_duration_bucket{le="2.5",deployment="QmXZiV6S13ha6QXq4dmaM3TB4CHcDxBMvGexSNu9Kc28EH"}
-        7062
+        7064
 
         indexer_service_query_duration_bucket{le="5",deployment="QmXZiV6S13ha6QXq4dmaM3TB4CHcDxBMvGexSNu9Kc28EH"}
-        7063
+        7065
 
         indexer_service_query_duration_bucket{le="10",deployment="QmXZiV6S13ha6QXq4dmaM3TB4CHcDxBMvGexSNu9Kc28EH"}
-        7063
+        7065
 
         indexer_service_query_duration_bucket{le="+Inf",deployment="QmXZiV6S13ha6QXq4dmaM3TB4CHcDxBMvGexSNu9Kc28EH"}
-        7063
+        7065
 
         indexer_service_query_duration_sum{deployment="QmXZiV6S13ha6QXq4dmaM3TB4CHcDxBMvGexSNu9Kc28EH"}
-        368.0530509119995
+        368.1037110979995
 
         indexer_service_query_duration_count{deployment="QmXZiV6S13ha6QXq4dmaM3TB4CHcDxBMvGexSNu9Kc28EH"}
-        7063
+        7065
 
         indexer_service_query_duration_bucket{le="0.005",deployment="QmT29nwVngpgGJSHaw1qnTeCLg9o3s95ix2L4TdX7WK67G"}
         0
@@ -1086,28 +1088,28 @@ interactions:
         77
 
         indexer_service_query_duration_bucket{le="0.5",deployment="QmT8631Rt8ZaGtD48F7WP6trs5Wd2RNoacMRPYLfuotDwB"}
-        1357
+        1358
 
         indexer_service_query_duration_bucket{le="1",deployment="QmT8631Rt8ZaGtD48F7WP6trs5Wd2RNoacMRPYLfuotDwB"}
-        1590
+        1592
 
         indexer_service_query_duration_bucket{le="2.5",deployment="QmT8631Rt8ZaGtD48F7WP6trs5Wd2RNoacMRPYLfuotDwB"}
-        1607
+        1609
 
         indexer_service_query_duration_bucket{le="5",deployment="QmT8631Rt8ZaGtD48F7WP6trs5Wd2RNoacMRPYLfuotDwB"}
-        1608
+        1611
 
         indexer_service_query_duration_bucket{le="10",deployment="QmT8631Rt8ZaGtD48F7WP6trs5Wd2RNoacMRPYLfuotDwB"}
-        1608
+        1611
 
         indexer_service_query_duration_bucket{le="+Inf",deployment="QmT8631Rt8ZaGtD48F7WP6trs5Wd2RNoacMRPYLfuotDwB"}
-        1608
+        1611
 
         indexer_service_query_duration_sum{deployment="QmT8631Rt8ZaGtD48F7WP6trs5Wd2RNoacMRPYLfuotDwB"}
-        678.0936016680001
+        681.9215890810001
 
         indexer_service_query_duration_count{deployment="QmT8631Rt8ZaGtD48F7WP6trs5Wd2RNoacMRPYLfuotDwB"}
-        1608
+        1611
 
         indexer_service_query_duration_bucket{le="0.005",deployment="QmW8r5NcWfraxqXY4p64sH9ohfZFEdoeTUoXKBdm2c9W28"}
         0
@@ -1998,40 +2000,40 @@ interactions:
         0
 
         indexer_service_query_duration_bucket{le="0.025",deployment="QmVQdzeGdPUiLiACeqXRpKAYpyj8Z1yfWLMUq7A7WundUf"}
-        2
+        3
 
         indexer_service_query_duration_bucket{le="0.05",deployment="QmVQdzeGdPUiLiACeqXRpKAYpyj8Z1yfWLMUq7A7WundUf"}
-        4
-
-        indexer_service_query_duration_bucket{le="0.1",deployment="QmVQdzeGdPUiLiACeqXRpKAYpyj8Z1yfWLMUq7A7WundUf"}
-        4
-
-        indexer_service_query_duration_bucket{le="0.25",deployment="QmVQdzeGdPUiLiACeqXRpKAYpyj8Z1yfWLMUq7A7WundUf"}
         5
 
-        indexer_service_query_duration_bucket{le="0.5",deployment="QmVQdzeGdPUiLiACeqXRpKAYpyj8Z1yfWLMUq7A7WundUf"}
+        indexer_service_query_duration_bucket{le="0.1",deployment="QmVQdzeGdPUiLiACeqXRpKAYpyj8Z1yfWLMUq7A7WundUf"}
+        5
+
+        indexer_service_query_duration_bucket{le="0.25",deployment="QmVQdzeGdPUiLiACeqXRpKAYpyj8Z1yfWLMUq7A7WundUf"}
         6
 
+        indexer_service_query_duration_bucket{le="0.5",deployment="QmVQdzeGdPUiLiACeqXRpKAYpyj8Z1yfWLMUq7A7WundUf"}
+        7
+
         indexer_service_query_duration_bucket{le="1",deployment="QmVQdzeGdPUiLiACeqXRpKAYpyj8Z1yfWLMUq7A7WundUf"}
-        8
+        9
 
         indexer_service_query_duration_bucket{le="2.5",deployment="QmVQdzeGdPUiLiACeqXRpKAYpyj8Z1yfWLMUq7A7WundUf"}
-        8
+        9
 
         indexer_service_query_duration_bucket{le="5",deployment="QmVQdzeGdPUiLiACeqXRpKAYpyj8Z1yfWLMUq7A7WundUf"}
-        8
+        9
 
         indexer_service_query_duration_bucket{le="10",deployment="QmVQdzeGdPUiLiACeqXRpKAYpyj8Z1yfWLMUq7A7WundUf"}
-        8
+        9
 
         indexer_service_query_duration_bucket{le="+Inf",deployment="QmVQdzeGdPUiLiACeqXRpKAYpyj8Z1yfWLMUq7A7WundUf"}
-        8
+        9
 
         indexer_service_query_duration_sum{deployment="QmVQdzeGdPUiLiACeqXRpKAYpyj8Z1yfWLMUq7A7WundUf"}
-        2.1269944190000003
+        2.1472199430000005
 
         indexer_service_query_duration_count{deployment="QmVQdzeGdPUiLiACeqXRpKAYpyj8Z1yfWLMUq7A7WundUf"}
-        8
+        9
 
         indexer_service_query_duration_bucket{le="0.005",deployment="QmSvVWWgni9dVDxFDySDuDFC7jH8PdBy3guKc7x9rRgGXv"}
         0
@@ -2049,31 +2051,31 @@ interactions:
         44
 
         indexer_service_query_duration_bucket{le="0.25",deployment="QmSvVWWgni9dVDxFDySDuDFC7jH8PdBy3guKc7x9rRgGXv"}
-        70
+        71
 
         indexer_service_query_duration_bucket{le="0.5",deployment="QmSvVWWgni9dVDxFDySDuDFC7jH8PdBy3guKc7x9rRgGXv"}
-        88
+        90
 
         indexer_service_query_duration_bucket{le="1",deployment="QmSvVWWgni9dVDxFDySDuDFC7jH8PdBy3guKc7x9rRgGXv"}
-        117
+        119
 
         indexer_service_query_duration_bucket{le="2.5",deployment="QmSvVWWgni9dVDxFDySDuDFC7jH8PdBy3guKc7x9rRgGXv"}
-        143
+        146
 
         indexer_service_query_duration_bucket{le="5",deployment="QmSvVWWgni9dVDxFDySDuDFC7jH8PdBy3guKc7x9rRgGXv"}
-        145
+        148
 
         indexer_service_query_duration_bucket{le="10",deployment="QmSvVWWgni9dVDxFDySDuDFC7jH8PdBy3guKc7x9rRgGXv"}
-        145
+        148
 
         indexer_service_query_duration_bucket{le="+Inf",deployment="QmSvVWWgni9dVDxFDySDuDFC7jH8PdBy3guKc7x9rRgGXv"}
-        145
+        148
 
         indexer_service_query_duration_sum{deployment="QmSvVWWgni9dVDxFDySDuDFC7jH8PdBy3guKc7x9rRgGXv"}
-        83.37803779099998
+        85.14049397799998
 
         indexer_service_query_duration_count{deployment="QmSvVWWgni9dVDxFDySDuDFC7jH8PdBy3guKc7x9rRgGXv"}
-        145
+        148
 
         indexer_service_query_duration_bucket{le="0.005",deployment="QmQvWjkGqnAk1YBfSogasskPhJ5dG46yxvrzYeJsowjhqb"}
         0
@@ -4229,7 +4231,7 @@ interactions:
 
         # TYPE indexer_service_cost_model_batch_queries counter
 
-        indexer_service_cost_model_batch_queries 39215
+        indexer_service_cost_model_batch_queries 39566
 
 
         # HELP indexer_service_cost_model_batch_queries_invalid Invalid queries for
@@ -4261,25 +4263,25 @@ interactions:
 
         indexer_service_cost_model_batch_query_duration_bucket{le="0.05"} 16102
 
-        indexer_service_cost_model_batch_query_duration_bucket{le="0.1"} 36732
+        indexer_service_cost_model_batch_query_duration_bucket{le="0.1"} 36901
 
-        indexer_service_cost_model_batch_query_duration_bucket{le="0.25"} 39179
+        indexer_service_cost_model_batch_query_duration_bucket{le="0.25"} 39527
 
-        indexer_service_cost_model_batch_query_duration_bucket{le="0.5"} 39213
+        indexer_service_cost_model_batch_query_duration_bucket{le="0.5"} 39562
 
-        indexer_service_cost_model_batch_query_duration_bucket{le="1"} 39215
+        indexer_service_cost_model_batch_query_duration_bucket{le="1"} 39565
 
-        indexer_service_cost_model_batch_query_duration_bucket{le="2.5"} 39215
+        indexer_service_cost_model_batch_query_duration_bucket{le="2.5"} 39565
 
-        indexer_service_cost_model_batch_query_duration_bucket{le="5"} 39215
+        indexer_service_cost_model_batch_query_duration_bucket{le="5"} 39565
 
-        indexer_service_cost_model_batch_query_duration_bucket{le="10"} 39215
+        indexer_service_cost_model_batch_query_duration_bucket{le="10"} 39565
 
-        indexer_service_cost_model_batch_query_duration_bucket{le="+Inf"} 39215
+        indexer_service_cost_model_batch_query_duration_bucket{le="+Inf"} 39565
 
-        indexer_service_cost_model_batch_query_duration_sum 2340.018091685006
+        indexer_service_cost_model_batch_query_duration_sum 2376.298072018004
 
-        indexer_service_cost_model_batch_query_duration_count 39215
+        indexer_service_cost_model_batch_query_duration_count 39565
 
 
         # HELP indexer_service_cost_model_batch_query_size Number of cost models requested
@@ -4309,24 +4311,24 @@ interactions:
 
         indexer_service_cost_model_batch_query_size_bucket{le="10"} 0
 
-        indexer_service_cost_model_batch_query_size_bucket{le="+Inf"} 39215
+        indexer_service_cost_model_batch_query_size_bucket{le="+Inf"} 39566
 
-        indexer_service_cost_model_batch_query_size_sum 14190736
+        indexer_service_cost_model_batch_query_size_sum 14318500
 
-        indexer_service_cost_model_batch_query_size_count 39215
+        indexer_service_cost_model_batch_query_size_count 39566
 
         '
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '171378'
+      - '171435'
       Content-Type:
       - text/plain; charset=utf-8; version=0.0.4
       Date:
-      - Fri, 13 Jan 2023 15:03:30 GMT
+      - Fri, 13 Jan 2023 17:00:08 GMT
       Etag:
-      - W/"29d72-g4y3P3R35Dv/VlbvXktIRcVZRvI"
+      - W/"29dab-hdlYHiIyfas/ArGh75DusQBjwok"
       Keep-Alive:
       - timeout=5
       X-Powered-By:
@@ -4334,12 +4336,12 @@ interactions:
     status:
       code: 200
       message: OK
-    url: http://indexer-service.default.svc.cluster.local:7300/metrics
+    url: http://indexer-service-0:7300/metrics
 - request:
     body: null
     headers: {}
     method: GET
-    uri: http://indexer-service.default.svc.cluster.local:7300/metrics
+    uri: http://indexer-service-1:7300/metrics
   response:
     body:
       string: '# HELP process_cpu_user_seconds_total Total user CPU time spent in
@@ -4347,21 +4349,21 @@ interactions:
 
         # TYPE process_cpu_user_seconds_total counter
 
-        process_cpu_user_seconds_total 16682.30144799993
+        process_cpu_user_seconds_total 16846.442238999934
 
 
         # HELP process_cpu_system_seconds_total Total system CPU time spent in seconds.
 
         # TYPE process_cpu_system_seconds_total counter
 
-        process_cpu_system_seconds_total 2331.553224999999
+        process_cpu_system_seconds_total 2355.4421859999998
 
 
         # HELP process_cpu_seconds_total Total user and system CPU time spent in seconds.
 
         # TYPE process_cpu_seconds_total counter
 
-        process_cpu_seconds_total 19013.85467300003
+        process_cpu_seconds_total 19201.88442500005
 
 
         # HELP process_start_time_seconds Start time of the process since unix epoch
@@ -4376,28 +4378,28 @@ interactions:
 
         # TYPE process_resident_memory_bytes gauge
 
-        process_resident_memory_bytes 1285054464
+        process_resident_memory_bytes 1285296128
 
 
         # HELP process_virtual_memory_bytes Virtual memory size in bytes.
 
         # TYPE process_virtual_memory_bytes gauge
 
-        process_virtual_memory_bytes 12868427776
+        process_virtual_memory_bytes 12871806976
 
 
         # HELP process_heap_bytes Process heap size in bytes.
 
         # TYPE process_heap_bytes gauge
 
-        process_heap_bytes 1325813760
+        process_heap_bytes 1321852928
 
 
         # HELP process_open_fds Number of open file descriptors.
 
         # TYPE process_open_fds gauge
 
-        process_open_fds 27
+        process_open_fds 28
 
 
         # HELP process_max_fds Maximum number of open file descriptors.
@@ -4411,21 +4413,21 @@ interactions:
 
         # TYPE nodejs_eventloop_lag_seconds gauge
 
-        nodejs_eventloop_lag_seconds 0.00862637
+        nodejs_eventloop_lag_seconds 0.012146846
 
 
         # HELP nodejs_eventloop_lag_min_seconds The minimum recorded event loop delay.
 
         # TYPE nodejs_eventloop_lag_min_seconds gauge
 
-        nodejs_eventloop_lag_min_seconds 0.009003008
+        nodejs_eventloop_lag_min_seconds 0.009084928
 
 
         # HELP nodejs_eventloop_lag_max_seconds The maximum recorded event loop delay.
 
         # TYPE nodejs_eventloop_lag_max_seconds gauge
 
-        nodejs_eventloop_lag_max_seconds 0.075759615
+        nodejs_eventloop_lag_max_seconds 0.011624447
 
 
         # HELP nodejs_eventloop_lag_mean_seconds The mean of the recorded event loop
@@ -4433,7 +4435,7 @@ interactions:
 
         # TYPE nodejs_eventloop_lag_mean_seconds gauge
 
-        nodejs_eventloop_lag_mean_seconds 0.010213662050520059
+        nodejs_eventloop_lag_mean_seconds 0.010123448089887641
 
 
         # HELP nodejs_eventloop_lag_stddev_seconds The standard deviation of the recorded
@@ -4441,7 +4443,7 @@ interactions:
 
         # TYPE nodejs_eventloop_lag_stddev_seconds gauge
 
-        nodejs_eventloop_lag_stddev_seconds 0.002091743986754499
+        nodejs_eventloop_lag_stddev_seconds 0.000175821400194044
 
 
         # HELP nodejs_eventloop_lag_p50_seconds The 50th percentile of the recorded
@@ -4449,7 +4451,7 @@ interactions:
 
         # TYPE nodejs_eventloop_lag_p50_seconds gauge
 
-        nodejs_eventloop_lag_p50_seconds 0.010108927
+        nodejs_eventloop_lag_p50_seconds 0.010125311
 
 
         # HELP nodejs_eventloop_lag_p90_seconds The 90th percentile of the recorded
@@ -4457,7 +4459,7 @@ interactions:
 
         # TYPE nodejs_eventloop_lag_p90_seconds gauge
 
-        nodejs_eventloop_lag_p90_seconds 0.010199039
+        nodejs_eventloop_lag_p90_seconds 0.010207231
 
 
         # HELP nodejs_eventloop_lag_p99_seconds The 99th percentile of the recorded
@@ -4465,7 +4467,7 @@ interactions:
 
         # TYPE nodejs_eventloop_lag_p99_seconds gauge
 
-        nodejs_eventloop_lag_p99_seconds 0.010846207
+        nodejs_eventloop_lag_p99_seconds 0.010641407
 
 
         # HELP nodejs_active_handles Number of active libuv handles grouped by handle
@@ -4473,7 +4475,7 @@ interactions:
 
         # TYPE nodejs_active_handles gauge
 
-        nodejs_active_handles{type="Socket"} 8
+        nodejs_active_handles{type="Socket"} 10
 
         nodejs_active_handles{type="Server"} 2
 
@@ -4482,7 +4484,7 @@ interactions:
 
         # TYPE nodejs_active_handles_total gauge
 
-        nodejs_active_handles_total 10
+        nodejs_active_handles_total 12
 
 
         # HELP nodejs_active_requests Number of active libuv requests grouped by request
@@ -4502,7 +4504,7 @@ interactions:
 
         # TYPE nodejs_heap_size_total_bytes gauge
 
-        nodejs_heap_size_total_bytes 1111601152
+        nodejs_heap_size_total_bytes 1106796544
 
 
         # HELP nodejs_heap_size_used_bytes Process heap size used from Node.js in
@@ -4510,14 +4512,14 @@ interactions:
 
         # TYPE nodejs_heap_size_used_bytes gauge
 
-        nodejs_heap_size_used_bytes 1064004928
+        nodejs_heap_size_used_bytes 1074466488
 
 
         # HELP nodejs_external_memory_bytes Node.js external memory size in bytes.
 
         # TYPE nodejs_external_memory_bytes gauge
 
-        nodejs_external_memory_bytes 21013845
+        nodejs_external_memory_bytes 10267070
 
 
         # HELP nodejs_heap_space_size_total_bytes Process heap space size total from
@@ -4527,19 +4529,19 @@ interactions:
 
         nodejs_heap_space_size_total_bytes{space="read_only"} 176128
 
-        nodejs_heap_space_size_total_bytes{space="old"} 1070223360
+        nodejs_heap_space_size_total_bytes{space="old"} 1083330560
 
         nodejs_heap_space_size_total_bytes{space="code"} 8757248
 
-        nodejs_heap_space_size_total_bytes{space="map"} 4202496
+        nodejs_heap_space_size_total_bytes{space="map"} 4464640
 
-        nodejs_heap_space_size_total_bytes{space="large_object"} 19853312
+        nodejs_heap_space_size_total_bytes{space="large_object"} 9019392
 
         nodejs_heap_space_size_total_bytes{space="code_large_object"} 0
 
         nodejs_heap_space_size_total_bytes{space="new_large_object"} 0
 
-        nodejs_heap_space_size_total_bytes{space="new"} 8388608
+        nodejs_heap_space_size_total_bytes{space="new"} 1048576
 
 
         # HELP nodejs_heap_space_size_used_bytes Process heap space size used from
@@ -4549,19 +4551,19 @@ interactions:
 
         nodejs_heap_space_size_used_bytes{space="read_only"} 170944
 
-        nodejs_heap_space_size_used_bytes{space="old"} 1031773496
+        nodejs_heap_space_size_used_bytes{space="old"} 1053967032
 
-        nodejs_heap_space_size_used_bytes{space="code"} 7462016
+        nodejs_heap_space_size_used_bytes{space="code"} 7586624
 
-        nodejs_heap_space_size_used_bytes{space="map"} 2941992
+        nodejs_heap_space_size_used_bytes{space="map"} 3533472
 
-        nodejs_heap_space_size_used_bytes{space="large_object"} 19659200
+        nodejs_heap_space_size_used_bytes{space="large_object"} 8740600
 
         nodejs_heap_space_size_used_bytes{space="code_large_object"} 0
 
         nodejs_heap_space_size_used_bytes{space="new_large_object"} 0
 
-        nodejs_heap_space_size_used_bytes{space="new"} 2001576
+        nodejs_heap_space_size_used_bytes{space="new"} 472112
 
 
         # HELP nodejs_heap_space_size_available_bytes Process heap space size available
@@ -4571,19 +4573,19 @@ interactions:
 
         nodejs_heap_space_size_available_bytes{space="read_only"} 0
 
-        nodejs_heap_space_size_available_bytes{space="old"} 19712032
+        nodejs_heap_space_size_available_bytes{space="old"} 10343944
 
-        nodejs_heap_space_size_available_bytes{space="code"} 738176
+        nodejs_heap_space_size_available_bytes{space="code"} 613568
 
-        nodejs_heap_space_size_available_bytes{space="map"} 1186032
+        nodejs_heap_space_size_available_bytes{space="map"} 852304
 
         nodejs_heap_space_size_available_bytes{space="large_object"} 0
 
         nodejs_heap_space_size_available_bytes{space="code_large_object"} 0
 
-        nodejs_heap_space_size_available_bytes{space="new_large_object"} 4124288
+        nodejs_heap_space_size_available_bytes{space="new_large_object"} 1031072
 
-        nodejs_heap_space_size_available_bytes{space="new"} 2122712
+        nodejs_heap_space_size_available_bytes{space="new"} 558960
 
 
         # HELP nodejs_version_info Node.js version info.
@@ -4600,57 +4602,57 @@ interactions:
 
         nodejs_gc_duration_seconds_bucket{le="0.001",kind="minor"} 10640
 
-        nodejs_gc_duration_seconds_bucket{le="0.01",kind="minor"} 195621
+        nodejs_gc_duration_seconds_bucket{le="0.01",kind="minor"} 198694
 
-        nodejs_gc_duration_seconds_bucket{le="0.1",kind="minor"} 196450
+        nodejs_gc_duration_seconds_bucket{le="0.1",kind="minor"} 199544
 
-        nodejs_gc_duration_seconds_bucket{le="1",kind="minor"} 196450
+        nodejs_gc_duration_seconds_bucket{le="1",kind="minor"} 199544
 
-        nodejs_gc_duration_seconds_bucket{le="2",kind="minor"} 196450
+        nodejs_gc_duration_seconds_bucket{le="2",kind="minor"} 199544
 
-        nodejs_gc_duration_seconds_bucket{le="5",kind="minor"} 196450
+        nodejs_gc_duration_seconds_bucket{le="5",kind="minor"} 199544
 
-        nodejs_gc_duration_seconds_bucket{le="+Inf",kind="minor"} 196451
+        nodejs_gc_duration_seconds_bucket{le="+Inf",kind="minor"} 199545
 
-        nodejs_gc_duration_seconds_sum{kind="minor"} 494.7075310697594
+        nodejs_gc_duration_seconds_sum{kind="minor"} 506.9673757123995
 
-        nodejs_gc_duration_seconds_count{kind="minor"} 196451
+        nodejs_gc_duration_seconds_count{kind="minor"} 199545
 
-        nodejs_gc_duration_seconds_bucket{le="0.001",kind="incremental"} 15522
+        nodejs_gc_duration_seconds_bucket{le="0.001",kind="incremental"} 15540
 
-        nodejs_gc_duration_seconds_bucket{le="0.01",kind="incremental"} 19613
+        nodejs_gc_duration_seconds_bucket{le="0.01",kind="incremental"} 19639
 
-        nodejs_gc_duration_seconds_bucket{le="0.1",kind="incremental"} 19760
+        nodejs_gc_duration_seconds_bucket{le="0.1",kind="incremental"} 19787
 
-        nodejs_gc_duration_seconds_bucket{le="1",kind="incremental"} 19760
+        nodejs_gc_duration_seconds_bucket{le="1",kind="incremental"} 19787
 
-        nodejs_gc_duration_seconds_bucket{le="2",kind="incremental"} 19760
+        nodejs_gc_duration_seconds_bucket{le="2",kind="incremental"} 19787
 
-        nodejs_gc_duration_seconds_bucket{le="5",kind="incremental"} 19760
+        nodejs_gc_duration_seconds_bucket{le="5",kind="incremental"} 19787
 
-        nodejs_gc_duration_seconds_bucket{le="+Inf",kind="incremental"} 19760
+        nodejs_gc_duration_seconds_bucket{le="+Inf",kind="incremental"} 19787
 
-        nodejs_gc_duration_seconds_sum{kind="incremental"} 18.09062520313272
+        nodejs_gc_duration_seconds_sum{kind="incremental"} 18.14343241357813
 
-        nodejs_gc_duration_seconds_count{kind="incremental"} 19760
+        nodejs_gc_duration_seconds_count{kind="incremental"} 19787
 
         nodejs_gc_duration_seconds_bucket{le="0.001",kind="major"} 0
 
         nodejs_gc_duration_seconds_bucket{le="0.01",kind="major"} 5485
 
-        nodejs_gc_duration_seconds_bucket{le="0.1",kind="major"} 12151
+        nodejs_gc_duration_seconds_bucket{le="0.1",kind="major"} 12169
 
-        nodejs_gc_duration_seconds_bucket{le="1",kind="major"} 12186
+        nodejs_gc_duration_seconds_bucket{le="1",kind="major"} 12204
 
-        nodejs_gc_duration_seconds_bucket{le="2",kind="major"} 12186
+        nodejs_gc_duration_seconds_bucket{le="2",kind="major"} 12204
 
-        nodejs_gc_duration_seconds_bucket{le="5",kind="major"} 12186
+        nodejs_gc_duration_seconds_bucket{le="5",kind="major"} 12204
 
-        nodejs_gc_duration_seconds_bucket{le="+Inf",kind="major"} 12186
+        nodejs_gc_duration_seconds_bucket{le="+Inf",kind="major"} 12204
 
-        nodejs_gc_duration_seconds_sum{kind="major"} 153.10035397529575
+        nodejs_gc_duration_seconds_sum{kind="major"} 153.58083143234225
 
-        nodejs_gc_duration_seconds_count{kind="major"} 12186
+        nodejs_gc_duration_seconds_count{kind="major"} 12204
 
         nodejs_gc_duration_seconds_bucket{le="0.001",kind="weakcb"} 1
 
@@ -4675,7 +4677,7 @@ interactions:
 
         # TYPE indexer_error counter
 
-        indexer_error{code="IE010"} 4
+        indexer_error{code="IE010"} 5
 
 
         # HELP eth_provider_requests Ethereum provider requests
@@ -4684,7 +4686,7 @@ interactions:
 
         eth_provider_requests{method="eth_chainId"} 1
 
-        eth_provider_requests{method="eth_blockNumber"} 126200
+        eth_provider_requests{method="eth_blockNumber"} 127949
 
 
         # HELP indexer_service_queries_total Incoming queries
@@ -4692,7 +4694,7 @@ interactions:
         # TYPE indexer_service_queries_total counter
 
         indexer_service_queries_total{deployment="QmdQrhoanCwQ81Y5d2DkhDajBV3hxA9rgmPxStjjXBGZoW"}
-        106000
+        106168
 
         indexer_service_queries_total{deployment="QmWxteQps5mtjAx14XD1uycg6kJkFN8EPW7561iZE3dJz8"}
         2731
@@ -4701,16 +4703,16 @@ interactions:
         1378
 
         indexer_service_queries_total{deployment="QmPziMSbs4i7oQ6AfxmY5HDXMRVHiBBb8soWqncLpKfQGr"}
-        1667
+        1698
 
         indexer_service_queries_total{deployment="Qmadj8x9km1YEyKmRnJ6EkC2zpJZFCfTyTZpuqC3j6e1QH"}
-        928
+        938
 
         indexer_service_queries_total{deployment="QmYzsCjrVwwXtdsNm3PZVNziLGmb9o513GUzkq5wwhgXDT"}
-        7504
+        7554
 
         indexer_service_queries_total{deployment="QmdvneqZqz2NYeaqnVJGxhZzdonbVzyQSxzMJEE168tbNN"}
-        1627
+        1673
 
         indexer_service_queries_total{deployment="QmfRkTYBhZC7eYnW79wC9hmkdkhcGsFBTs4KALHjy4AuMm"}
         10
@@ -4725,7 +4727,7 @@ interactions:
         135
 
         indexer_service_queries_total{deployment="QmT8631Rt8ZaGtD48F7WP6trs5Wd2RNoacMRPYLfuotDwB"}
-        388
+        395
 
         indexer_service_queries_total{deployment="QmUTEf1ieNSmhk1pStwed1YiNE2kmWJqHL4QmNkDxMJpZL"}
         24
@@ -4779,7 +4781,7 @@ interactions:
         104
 
         indexer_service_queries_total{deployment="QmSvVWWgni9dVDxFDySDuDFC7jH8PdBy3guKc7x9rRgGXv"}
-        201
+        202
 
         indexer_service_queries_total{deployment="QmXR9PxfxHDNzcgRTvYCQj1oFR1q2uUtx8uZHApi9i4XdX"}
         1
@@ -4799,7 +4801,7 @@ interactions:
         # TYPE indexer_service_queries_ok counter
 
         indexer_service_queries_ok{deployment="QmdQrhoanCwQ81Y5d2DkhDajBV3hxA9rgmPxStjjXBGZoW"}
-        106000
+        106168
 
         indexer_service_queries_ok{deployment="QmWxteQps5mtjAx14XD1uycg6kJkFN8EPW7561iZE3dJz8"}
         2731
@@ -4808,16 +4810,16 @@ interactions:
         1378
 
         indexer_service_queries_ok{deployment="QmPziMSbs4i7oQ6AfxmY5HDXMRVHiBBb8soWqncLpKfQGr"}
-        1667
+        1698
 
         indexer_service_queries_ok{deployment="Qmadj8x9km1YEyKmRnJ6EkC2zpJZFCfTyTZpuqC3j6e1QH"}
-        928
+        938
 
         indexer_service_queries_ok{deployment="QmYzsCjrVwwXtdsNm3PZVNziLGmb9o513GUzkq5wwhgXDT"}
-        7504
+        7554
 
         indexer_service_queries_ok{deployment="QmdvneqZqz2NYeaqnVJGxhZzdonbVzyQSxzMJEE168tbNN"}
-        1627
+        1673
 
         indexer_service_queries_ok{deployment="QmfRkTYBhZC7eYnW79wC9hmkdkhcGsFBTs4KALHjy4AuMm"}
         10
@@ -4832,7 +4834,7 @@ interactions:
         135
 
         indexer_service_queries_ok{deployment="QmT8631Rt8ZaGtD48F7WP6trs5Wd2RNoacMRPYLfuotDwB"}
-        388
+        395
 
         indexer_service_queries_ok{deployment="QmUTEf1ieNSmhk1pStwed1YiNE2kmWJqHL4QmNkDxMJpZL"}
         24
@@ -4886,7 +4888,7 @@ interactions:
         104
 
         indexer_service_queries_ok{deployment="QmSvVWWgni9dVDxFDySDuDFC7jH8PdBy3guKc7x9rRgGXv"}
-        201
+        202
 
         indexer_service_queries_ok{deployment="QmXR9PxfxHDNzcgRTvYCQj1oFR1q2uUtx8uZHApi9i4XdX"}
         1
@@ -4936,40 +4938,40 @@ interactions:
         284
 
         indexer_service_query_duration_bucket{le="0.025",deployment="QmdQrhoanCwQ81Y5d2DkhDajBV3hxA9rgmPxStjjXBGZoW"}
-        29909
+        29921
 
         indexer_service_query_duration_bucket{le="0.05",deployment="QmdQrhoanCwQ81Y5d2DkhDajBV3hxA9rgmPxStjjXBGZoW"}
-        60729
+        60843
 
         indexer_service_query_duration_bucket{le="0.1",deployment="QmdQrhoanCwQ81Y5d2DkhDajBV3hxA9rgmPxStjjXBGZoW"}
-        75746
+        75899
 
         indexer_service_query_duration_bucket{le="0.25",deployment="QmdQrhoanCwQ81Y5d2DkhDajBV3hxA9rgmPxStjjXBGZoW"}
-        85662
+        85819
 
         indexer_service_query_duration_bucket{le="0.5",deployment="QmdQrhoanCwQ81Y5d2DkhDajBV3hxA9rgmPxStjjXBGZoW"}
-        92908
+        93065
 
         indexer_service_query_duration_bucket{le="1",deployment="QmdQrhoanCwQ81Y5d2DkhDajBV3hxA9rgmPxStjjXBGZoW"}
-        97676
+        97834
 
         indexer_service_query_duration_bucket{le="2.5",deployment="QmdQrhoanCwQ81Y5d2DkhDajBV3hxA9rgmPxStjjXBGZoW"}
-        100342
+        100504
 
         indexer_service_query_duration_bucket{le="5",deployment="QmdQrhoanCwQ81Y5d2DkhDajBV3hxA9rgmPxStjjXBGZoW"}
-        105941
+        106109
 
         indexer_service_query_duration_bucket{le="10",deployment="QmdQrhoanCwQ81Y5d2DkhDajBV3hxA9rgmPxStjjXBGZoW"}
-        105997
+        106165
 
         indexer_service_query_duration_bucket{le="+Inf",deployment="QmdQrhoanCwQ81Y5d2DkhDajBV3hxA9rgmPxStjjXBGZoW"}
-        106000
+        106168
 
         indexer_service_query_duration_sum{deployment="QmdQrhoanCwQ81Y5d2DkhDajBV3hxA9rgmPxStjjXBGZoW"}
-        33643.78006960481
+        33679.4760663358
 
         indexer_service_query_duration_count{deployment="QmdQrhoanCwQ81Y5d2DkhDajBV3hxA9rgmPxStjjXBGZoW"}
-        106000
+        106168
 
         indexer_service_query_duration_bucket{le="0.005",deployment="QmWxteQps5mtjAx14XD1uycg6kJkFN8EPW7561iZE3dJz8"}
         0
@@ -5062,40 +5064,40 @@ interactions:
         0
 
         indexer_service_query_duration_bucket{le="0.025",deployment="QmPziMSbs4i7oQ6AfxmY5HDXMRVHiBBb8soWqncLpKfQGr"}
-        218
+        220
 
         indexer_service_query_duration_bucket{le="0.05",deployment="QmPziMSbs4i7oQ6AfxmY5HDXMRVHiBBb8soWqncLpKfQGr"}
-        494
+        502
 
         indexer_service_query_duration_bucket{le="0.1",deployment="QmPziMSbs4i7oQ6AfxmY5HDXMRVHiBBb8soWqncLpKfQGr"}
-        840
+        855
 
         indexer_service_query_duration_bucket{le="0.25",deployment="QmPziMSbs4i7oQ6AfxmY5HDXMRVHiBBb8soWqncLpKfQGr"}
-        1028
+        1046
 
         indexer_service_query_duration_bucket{le="0.5",deployment="QmPziMSbs4i7oQ6AfxmY5HDXMRVHiBBb8soWqncLpKfQGr"}
-        1243
+        1261
 
         indexer_service_query_duration_bucket{le="1",deployment="QmPziMSbs4i7oQ6AfxmY5HDXMRVHiBBb8soWqncLpKfQGr"}
-        1561
+        1587
 
         indexer_service_query_duration_bucket{le="2.5",deployment="QmPziMSbs4i7oQ6AfxmY5HDXMRVHiBBb8soWqncLpKfQGr"}
-        1667
+        1698
 
         indexer_service_query_duration_bucket{le="5",deployment="QmPziMSbs4i7oQ6AfxmY5HDXMRVHiBBb8soWqncLpKfQGr"}
-        1667
+        1698
 
         indexer_service_query_duration_bucket{le="10",deployment="QmPziMSbs4i7oQ6AfxmY5HDXMRVHiBBb8soWqncLpKfQGr"}
-        1667
+        1698
 
         indexer_service_query_duration_bucket{le="+Inf",deployment="QmPziMSbs4i7oQ6AfxmY5HDXMRVHiBBb8soWqncLpKfQGr"}
-        1667
+        1698
 
         indexer_service_query_duration_sum{deployment="QmPziMSbs4i7oQ6AfxmY5HDXMRVHiBBb8soWqncLpKfQGr"}
-        511.036497301999
+        523.9139526139991
 
         indexer_service_query_duration_count{deployment="QmPziMSbs4i7oQ6AfxmY5HDXMRVHiBBb8soWqncLpKfQGr"}
-        1667
+        1698
 
         indexer_service_query_duration_bucket{le="0.005",deployment="Qmadj8x9km1YEyKmRnJ6EkC2zpJZFCfTyTZpuqC3j6e1QH"}
         0
@@ -5104,82 +5106,82 @@ interactions:
         2
 
         indexer_service_query_duration_bucket{le="0.025",deployment="Qmadj8x9km1YEyKmRnJ6EkC2zpJZFCfTyTZpuqC3j6e1QH"}
-        75
+        76
 
         indexer_service_query_duration_bucket{le="0.05",deployment="Qmadj8x9km1YEyKmRnJ6EkC2zpJZFCfTyTZpuqC3j6e1QH"}
-        747
+        756
 
         indexer_service_query_duration_bucket{le="0.1",deployment="Qmadj8x9km1YEyKmRnJ6EkC2zpJZFCfTyTZpuqC3j6e1QH"}
-        886
+        896
 
         indexer_service_query_duration_bucket{le="0.25",deployment="Qmadj8x9km1YEyKmRnJ6EkC2zpJZFCfTyTZpuqC3j6e1QH"}
-        919
+        929
 
         indexer_service_query_duration_bucket{le="0.5",deployment="Qmadj8x9km1YEyKmRnJ6EkC2zpJZFCfTyTZpuqC3j6e1QH"}
-        927
+        937
 
         indexer_service_query_duration_bucket{le="1",deployment="Qmadj8x9km1YEyKmRnJ6EkC2zpJZFCfTyTZpuqC3j6e1QH"}
-        927
+        937
 
         indexer_service_query_duration_bucket{le="2.5",deployment="Qmadj8x9km1YEyKmRnJ6EkC2zpJZFCfTyTZpuqC3j6e1QH"}
-        928
+        938
 
         indexer_service_query_duration_bucket{le="5",deployment="Qmadj8x9km1YEyKmRnJ6EkC2zpJZFCfTyTZpuqC3j6e1QH"}
-        928
+        938
 
         indexer_service_query_duration_bucket{le="10",deployment="Qmadj8x9km1YEyKmRnJ6EkC2zpJZFCfTyTZpuqC3j6e1QH"}
-        928
+        938
 
         indexer_service_query_duration_bucket{le="+Inf",deployment="Qmadj8x9km1YEyKmRnJ6EkC2zpJZFCfTyTZpuqC3j6e1QH"}
-        928
+        938
 
         indexer_service_query_duration_sum{deployment="Qmadj8x9km1YEyKmRnJ6EkC2zpJZFCfTyTZpuqC3j6e1QH"}
-        42.389061113999986
+        42.802609383
 
         indexer_service_query_duration_count{deployment="Qmadj8x9km1YEyKmRnJ6EkC2zpJZFCfTyTZpuqC3j6e1QH"}
-        928
+        938
 
         indexer_service_query_duration_bucket{le="0.005",deployment="QmYzsCjrVwwXtdsNm3PZVNziLGmb9o513GUzkq5wwhgXDT"}
         3
 
         indexer_service_query_duration_bucket{le="0.01",deployment="QmYzsCjrVwwXtdsNm3PZVNziLGmb9o513GUzkq5wwhgXDT"}
-        1066
+        1068
 
         indexer_service_query_duration_bucket{le="0.025",deployment="QmYzsCjrVwwXtdsNm3PZVNziLGmb9o513GUzkq5wwhgXDT"}
-        3174
+        3186
 
         indexer_service_query_duration_bucket{le="0.05",deployment="QmYzsCjrVwwXtdsNm3PZVNziLGmb9o513GUzkq5wwhgXDT"}
-        4687
+        4711
 
         indexer_service_query_duration_bucket{le="0.1",deployment="QmYzsCjrVwwXtdsNm3PZVNziLGmb9o513GUzkq5wwhgXDT"}
-        6186
+        6220
 
         indexer_service_query_duration_bucket{le="0.25",deployment="QmYzsCjrVwwXtdsNm3PZVNziLGmb9o513GUzkq5wwhgXDT"}
-        7367
+        7415
 
         indexer_service_query_duration_bucket{le="0.5",deployment="QmYzsCjrVwwXtdsNm3PZVNziLGmb9o513GUzkq5wwhgXDT"}
-        7463
+        7512
 
         indexer_service_query_duration_bucket{le="1",deployment="QmYzsCjrVwwXtdsNm3PZVNziLGmb9o513GUzkq5wwhgXDT"}
-        7494
+        7544
 
         indexer_service_query_duration_bucket{le="2.5",deployment="QmYzsCjrVwwXtdsNm3PZVNziLGmb9o513GUzkq5wwhgXDT"}
-        7503
+        7553
 
         indexer_service_query_duration_bucket{le="5",deployment="QmYzsCjrVwwXtdsNm3PZVNziLGmb9o513GUzkq5wwhgXDT"}
-        7503
+        7553
 
         indexer_service_query_duration_bucket{le="10",deployment="QmYzsCjrVwwXtdsNm3PZVNziLGmb9o513GUzkq5wwhgXDT"}
-        7503
+        7553
 
         indexer_service_query_duration_bucket{le="+Inf",deployment="QmYzsCjrVwwXtdsNm3PZVNziLGmb9o513GUzkq5wwhgXDT"}
-        7504
+        7554
 
         indexer_service_query_duration_sum{deployment="QmYzsCjrVwwXtdsNm3PZVNziLGmb9o513GUzkq5wwhgXDT"}
-        479.437546559
+        483.95360849100007
 
         indexer_service_query_duration_count{deployment="QmYzsCjrVwwXtdsNm3PZVNziLGmb9o513GUzkq5wwhgXDT"}
-        7504
+        7554
 
         indexer_service_query_duration_bucket{le="0.005",deployment="QmdvneqZqz2NYeaqnVJGxhZzdonbVzyQSxzMJEE168tbNN"}
         0
@@ -5188,40 +5190,40 @@ interactions:
         0
 
         indexer_service_query_duration_bucket{le="0.025",deployment="QmdvneqZqz2NYeaqnVJGxhZzdonbVzyQSxzMJEE168tbNN"}
-        285
+        288
 
         indexer_service_query_duration_bucket{le="0.05",deployment="QmdvneqZqz2NYeaqnVJGxhZzdonbVzyQSxzMJEE168tbNN"}
-        581
+        594
 
         indexer_service_query_duration_bucket{le="0.1",deployment="QmdvneqZqz2NYeaqnVJGxhZzdonbVzyQSxzMJEE168tbNN"}
-        1391
+        1427
 
         indexer_service_query_duration_bucket{le="0.25",deployment="QmdvneqZqz2NYeaqnVJGxhZzdonbVzyQSxzMJEE168tbNN"}
-        1595
+        1638
 
         indexer_service_query_duration_bucket{le="0.5",deployment="QmdvneqZqz2NYeaqnVJGxhZzdonbVzyQSxzMJEE168tbNN"}
-        1615
+        1660
 
         indexer_service_query_duration_bucket{le="1",deployment="QmdvneqZqz2NYeaqnVJGxhZzdonbVzyQSxzMJEE168tbNN"}
-        1626
+        1671
 
         indexer_service_query_duration_bucket{le="2.5",deployment="QmdvneqZqz2NYeaqnVJGxhZzdonbVzyQSxzMJEE168tbNN"}
-        1627
+        1673
 
         indexer_service_query_duration_bucket{le="5",deployment="QmdvneqZqz2NYeaqnVJGxhZzdonbVzyQSxzMJEE168tbNN"}
-        1627
+        1673
 
         indexer_service_query_duration_bucket{le="10",deployment="QmdvneqZqz2NYeaqnVJGxhZzdonbVzyQSxzMJEE168tbNN"}
-        1627
+        1673
 
         indexer_service_query_duration_bucket{le="+Inf",deployment="QmdvneqZqz2NYeaqnVJGxhZzdonbVzyQSxzMJEE168tbNN"}
-        1627
+        1673
 
         indexer_service_query_duration_sum{deployment="QmdvneqZqz2NYeaqnVJGxhZzdonbVzyQSxzMJEE168tbNN"}
-        118.14766354900004
+        123.33758754000002
 
         indexer_service_query_duration_count{deployment="QmdvneqZqz2NYeaqnVJGxhZzdonbVzyQSxzMJEE168tbNN"}
-        1627
+        1673
 
         indexer_service_query_duration_bucket{le="0.005",deployment="QmfRkTYBhZC7eYnW79wC9hmkdkhcGsFBTs4KALHjy4AuMm"}
         0
@@ -5410,28 +5412,28 @@ interactions:
         5
 
         indexer_service_query_duration_bucket{le="0.5",deployment="QmT8631Rt8ZaGtD48F7WP6trs5Wd2RNoacMRPYLfuotDwB"}
-        253
+        256
 
         indexer_service_query_duration_bucket{le="1",deployment="QmT8631Rt8ZaGtD48F7WP6trs5Wd2RNoacMRPYLfuotDwB"}
-        380
+        387
 
         indexer_service_query_duration_bucket{le="2.5",deployment="QmT8631Rt8ZaGtD48F7WP6trs5Wd2RNoacMRPYLfuotDwB"}
-        387
+        394
 
         indexer_service_query_duration_bucket{le="5",deployment="QmT8631Rt8ZaGtD48F7WP6trs5Wd2RNoacMRPYLfuotDwB"}
-        387
+        394
 
         indexer_service_query_duration_bucket{le="10",deployment="QmT8631Rt8ZaGtD48F7WP6trs5Wd2RNoacMRPYLfuotDwB"}
-        387
+        394
 
         indexer_service_query_duration_bucket{le="+Inf",deployment="QmT8631Rt8ZaGtD48F7WP6trs5Wd2RNoacMRPYLfuotDwB"}
-        388
+        395
 
         indexer_service_query_duration_sum{deployment="QmT8631Rt8ZaGtD48F7WP6trs5Wd2RNoacMRPYLfuotDwB"}
-        225.68153380300006
+        229.42968811100008
 
         indexer_service_query_duration_count{deployment="QmT8631Rt8ZaGtD48F7WP6trs5Wd2RNoacMRPYLfuotDwB"}
-        388
+        395
 
         indexer_service_query_duration_bucket{le="0.005",deployment="QmUTEf1ieNSmhk1pStwed1YiNE2kmWJqHL4QmNkDxMJpZL"}
         0
@@ -6169,25 +6171,25 @@ interactions:
         125
 
         indexer_service_query_duration_bucket{le="1",deployment="QmSvVWWgni9dVDxFDySDuDFC7jH8PdBy3guKc7x9rRgGXv"}
-        160
+        161
 
         indexer_service_query_duration_bucket{le="2.5",deployment="QmSvVWWgni9dVDxFDySDuDFC7jH8PdBy3guKc7x9rRgGXv"}
-        194
+        195
 
         indexer_service_query_duration_bucket{le="5",deployment="QmSvVWWgni9dVDxFDySDuDFC7jH8PdBy3guKc7x9rRgGXv"}
-        201
+        202
 
         indexer_service_query_duration_bucket{le="10",deployment="QmSvVWWgni9dVDxFDySDuDFC7jH8PdBy3guKc7x9rRgGXv"}
-        201
+        202
 
         indexer_service_query_duration_bucket{le="+Inf",deployment="QmSvVWWgni9dVDxFDySDuDFC7jH8PdBy3guKc7x9rRgGXv"}
-        201
+        202
 
         indexer_service_query_duration_sum{deployment="QmSvVWWgni9dVDxFDySDuDFC7jH8PdBy3guKc7x9rRgGXv"}
-        117.72148053000002
+        118.64766439600002
 
         indexer_service_query_duration_count{deployment="QmSvVWWgni9dVDxFDySDuDFC7jH8PdBy3guKc7x9rRgGXv"}
-        201
+        202
 
         indexer_service_query_duration_bucket{le="0.005",deployment="QmXR9PxfxHDNzcgRTvYCQj1oFR1q2uUtx8uZHApi9i4XdX"}
         0
@@ -8019,7 +8021,7 @@ interactions:
 
         # TYPE indexer_service_cost_model_batch_queries counter
 
-        indexer_service_cost_model_batch_queries 25220
+        indexer_service_cost_model_batch_queries 25565
 
 
         # HELP indexer_service_cost_model_batch_queries_invalid Invalid queries for
@@ -8051,25 +8053,25 @@ interactions:
 
         indexer_service_cost_model_batch_query_duration_bucket{le="0.05"} 16056
 
-        indexer_service_cost_model_batch_query_duration_bucket{le="0.1"} 25102
+        indexer_service_cost_model_batch_query_duration_bucket{le="0.1"} 25434
 
-        indexer_service_cost_model_batch_query_duration_bucket{le="0.25"} 25217
+        indexer_service_cost_model_batch_query_duration_bucket{le="0.25"} 25562
 
-        indexer_service_cost_model_batch_query_duration_bucket{le="0.5"} 25220
+        indexer_service_cost_model_batch_query_duration_bucket{le="0.5"} 25565
 
-        indexer_service_cost_model_batch_query_duration_bucket{le="1"} 25220
+        indexer_service_cost_model_batch_query_duration_bucket{le="1"} 25565
 
-        indexer_service_cost_model_batch_query_duration_bucket{le="2.5"} 25220
+        indexer_service_cost_model_batch_query_duration_bucket{le="2.5"} 25565
 
-        indexer_service_cost_model_batch_query_duration_bucket{le="5"} 25220
+        indexer_service_cost_model_batch_query_duration_bucket{le="5"} 25565
 
-        indexer_service_cost_model_batch_query_duration_bucket{le="10"} 25220
+        indexer_service_cost_model_batch_query_duration_bucket{le="10"} 25565
 
-        indexer_service_cost_model_batch_query_duration_bucket{le="+Inf"} 25220
+        indexer_service_cost_model_batch_query_duration_bucket{le="+Inf"} 25565
 
-        indexer_service_cost_model_batch_query_duration_sum 1158.9974494710025
+        indexer_service_cost_model_batch_query_duration_sum 1185.9858886040001
 
-        indexer_service_cost_model_batch_query_duration_count 25220
+        indexer_service_cost_model_batch_query_duration_count 25565
 
 
         # HELP indexer_service_cost_model_batch_query_size Number of cost models requested
@@ -8099,24 +8101,24 @@ interactions:
 
         indexer_service_cost_model_batch_query_size_bucket{le="10"} 0
 
-        indexer_service_cost_model_batch_query_size_bucket{le="+Inf"} 25220
+        indexer_service_cost_model_batch_query_size_bucket{le="+Inf"} 25565
 
-        indexer_service_cost_model_batch_query_size_sum 9139939
+        indexer_service_cost_model_batch_query_size_sum 9265519
 
-        indexer_service_cost_model_batch_query_size_count 25220
+        indexer_service_cost_model_batch_query_size_count 25565
 
         '
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '146821'
+      - '146819'
       Content-Type:
       - text/plain; charset=utf-8; version=0.0.4
       Date:
-      - Fri, 13 Jan 2023 15:03:30 GMT
+      - Fri, 13 Jan 2023 17:00:09 GMT
       Etag:
-      - W/"23d85-EaAd72kC74WcD81Ads7+LL5UkqU"
+      - W/"23d83-aJdB4QUcGHlrvwNP1CdocJVa8iQ"
       Keep-Alive:
       - timeout=5
       X-Powered-By:
@@ -8124,5 +8126,5 @@ interactions:
     status:
       code: 200
       message: OK
-    url: http://indexer-service.default.svc.cluster.local:7300/metrics
+    url: http://indexer-service-1:7300/metrics
 version: 1
