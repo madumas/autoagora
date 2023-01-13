@@ -9,7 +9,7 @@ from typing import Dict
 import aiohttp
 import backoff
 import configargparse
-
+import vcr
 from autoagora.config import args
 
 argsparser = configargparse.get_argument_parser()
@@ -59,17 +59,18 @@ async def query_counts() -> Dict[str, int]:
     backoff.expo, (aiohttp.ClientError, HTTPError), max_time=30, logger=logging.root
 )
 async def subgraph_query_count(subgraph: str) -> int:
-    async with aiohttp.ClientSession() as session:
-        async with session.get(args.indexer_service_metrics_endpoint) as response:
-            if response.status != 200:
-                raise HTTPError(response.status)
+    with vcr.use_cassette('vcr_cassettes/indexer_service_metrics_endpoint.yaml'):
+        async with aiohttp.ClientSession() as session:
+            async with session.get(args.indexer_service_metrics_endpoint) as response:
+                if response.status != 200:
+                    raise HTTPError(response.status)
 
-            results = re.findall(
-                r'indexer_service_queries_ok{{deployment="{subgraph}"}} ([0-9]*)'.format(
-                    subgraph=subgraph
-                ),
-                await indexer_service_metrics(),
-            )
+                results = re.findall(
+                    r'indexer_service_queries_ok{{deployment="{subgraph}"}} ([0-9]*)'.format(
+                        subgraph=subgraph
+                    ),
+                    await indexer_service_metrics(),
+                )
 
     if len(results) == 0:
         # The subgraph query count will not be in the metric if it hasn't received any
